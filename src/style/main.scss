@@ -1,0 +1,96 @@
+@import "./vertical-rhythm.scss";
+
+// Vertical Rhythm
+// https://jhildenbiddle.github.io/vertical-rhythm-reset
+// =====================================
+
+// Set base variables
+// -------------------------------------
+$vr-font-size: 14px;
+$vr-line-height: 1.5;
+$vr-modular-scale: minor-third;
+$vr-grid-color: rgb(234, 128, 163);
+
+// Set breakpoints (optional)
+// -------------------------------------
+$vr-breakpoints: (
+        60em: (// 960px
+                font-size : 16px,
+                grid-color : blue
+        ),
+        80em: (// 1280px
+                font-size : 18px,
+                line-height : 1.8,
+                modular-scale: major-third,
+                grid-color : purple
+        )
+);
+
+// Call the reset mixin at root
+// -------------------------------------
+@include vr-reset();
+
+// Demo: grid overlay (optional)
+// -------------------------------------
+body {
+  @include vr-grid(
+          $lines: true,
+          $highlight: false,
+          $detail: false
+  );
+}
+
+.style {
+  @include vr-grid(
+          $lines: true,
+          $highlight: true,
+          $detail: false
+  );
+}
+
+// Demo: Using the vr() mixin
+// -------------------------------------
+// This ensures values are multiples of
+// the vertical rhythm grid height.
+h1 {
+  @include vr(
+          $font-size: 4,
+          $margin-top: 1,
+          $margin-bottom: 1,
+          $padding-top: 0,
+          $padding-bottom: 0
+  );
+}
+
+// Demo: Fixed Height Elements
+// -------------------------------------
+.test-height-100 {
+  @include vr($height: 100px);
+}
+
+.test-height-150 {
+  @include vr($height: 150px);
+}
+
+.test-height-200 {
+  @include vr($height: 200px);
+}
+
+// Demo: Border Offsets
+// -------------------------------------
+.test-offset {
+  // A single offset value is applied
+  // the to both top and bottom.
+  @include vr($offset: 3px);
+  border: 3px solid #999;
+}
+
+.test-offset-top {
+  @include vr($offset-top: 3px);
+  border-top: 3px solid #999;
+}
+
+.test-offset-bottom {
+  @include vr($offset-bottom: 3px);
+  border-bottom: 3px solid #999;
+}
