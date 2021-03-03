@@ -32,13 +32,13 @@ $vr-breakpoints: (
 
 // Demo: grid overlay (optional)
 // -------------------------------------
-body {
-  @include vr-grid(
-          $lines: true,
-          $highlight: false,
-          $detail: false
-  );
-}
+//body {
+//  @include vr-grid(
+//          $lines: true,
+//          $highlight: false,
+//          $detail: false
+//  );
+//}
 
 .style {
   @include vr-grid(
