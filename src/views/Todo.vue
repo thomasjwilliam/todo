@@ -19,7 +19,7 @@ export default class Todo extends Vue {
   mounted() {
     console.log('mounted');
     // http://thomasjwilliam.github.io/data/todos.json
-    fetch("https://thomasjwilliam.github.io/data/todos.json").then(data => console.log(data.json()));
+    fetch("https://thomasjwilliam.github.io/data/todos.json").then(data => console.log(data));
   }
 }
 </script>
