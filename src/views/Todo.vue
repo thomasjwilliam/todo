@@ -1,27 +1,31 @@
 <template>
-  <div class="todo">
+  <div class="">
     <h1>Todos</h1>
 
-    <ul>
-      <li>Eat with fingers</li>
-      <li>Walk Santiago de Compostela</li>
-      <li>Marte - El espejo rojo</li>
-    </ul>
+    <div v-for="todo in todos" :key="todo.id">
+      <h3 v-if="todo.url">
+        <a :href="todo.url">{{ todo.title }}</a>
+      </h3>
+      <h3 v-else>{{ todo.title }}</h3>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-
-import {Component, Prop, Vue} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
+import todos from "@/views/todos.json";
 
 @Component
 export default class Todo extends Vue {
+  todos = null;
+  todosFake = todos;
+
   mounted() {
-    console.log('mounted');
-    // http://thomasjwilliam.github.io/data/todos.json
     fetch("https://thomasjwilliam.github.io/data/todos.json")
-    .then(response => response.json())
-    .then(data => console.log(data));
+      .then(response => response.json())
+      .then(data => {
+        this.todos = data;
+      });
   }
 }
 </script>
