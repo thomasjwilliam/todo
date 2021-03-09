@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Todos</router-link> |
-      <router-link to="/style">Style</router-link>
+      <router-link to="/style">Style</router-link> |
+      <a href="https://github.com/thomasjwilliam/data/blob/main/todos.json">Source</a>
     </div>
     <router-view />
   </div>
